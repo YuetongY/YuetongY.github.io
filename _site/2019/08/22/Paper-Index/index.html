@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="1">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>文章汇总 - Yuetong's Log</title>
+
+    <link rel="canonical" href="http://localhost:4000/2019/08/22/Paper-Index/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Logging.debug</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/state_of_the_art.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/state_of_the_art.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#深度学习" title="深度学习">深度学习</a>
+                        
+                        <a class="tag" href="/tags/#分布式训练" title="分布式训练">分布式训练</a>
+                        
+                        <a class="tag" href="/tags/#文章总结" title="文章总结">文章总结</a>
+                        
+                    </div>
+                    <h1>文章汇总</h1>
+                    
+                    
+                    <h2 class="subheading">读过的文章的分类汇总</h2>
+                    
+                    <span class="meta">Posted by yuetong on August 22, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="文章汇总">文章汇总</h1>
+<p>在这里，我将近期读过的一些文章做一个汇总与梳理。之后这篇汇总涉及到的篇目将随着阅读的深入不断的增加。
+这里包括的文章大多是与分布式深度神经网络训练相关的，不过这个领域包括许多细分的方向，各篇文章侧重的重点有所不同，当然不同方向的文章的关注点也有交集。为了更好的整理这个目录性质的文章汇总，我依据个人理解粗略对文章进行分类，并放入相应的类别下。某些文章如果与多个主题相关，它们将会在多个类别下出现。</p>
+
+<p>[TOC]</p>
+
+<h2 id="综述">综述</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1802.09941">Demystifying Parallel and Distributed Deep Learning: An In-Depth Concurrency Analysis</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-02</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1810.11787">A Hitchhiker’s Guide On Distributed Training of Deep Neural Networks</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="large-batch-training">Large Batch Training</h2>
+<h3 id="系统整体设计">系统整体设计</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="https://arxiv.org/abs/1706.02677">Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2017-06</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://dl.acm.org/citation.cfm?id=3225069">ImageNet Training in Minutes</a></td>
+      <td style="text-align: center">ICPP 2018</td>
+      <td style="text-align: center">2018-08</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://arxiv.org/abs/1711.04325">Extremely Large Minibatch SGD: Training ResNet-50 on ImageNet in 15 Minutes</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2017-11</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://arxiv.org/abs/1807.11205">Highly Scalable Deep Learning Training System with Mixed-Precision: Training ImageNet in Four Minutes</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-07</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1902.06855">Optimizing Network Performance for Distributed DNN Training on GPU Clusters: ImageNet/AlexNet Training in 1.5 Minutes</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2019-02</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1810.01993">Exascale Deep Learning for Climate Analytics</a></td>
+      <td style="text-align: center">SC 19</td>
+      <td style="text-align: center">2018-10</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Speeding up ImageNet Training on Supercomputers</td>
+      <td style="text-align: center">SysML 2018</td>
+      <td style="text-align: center">2018</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://arxiv.org/abs/1604.00981">Revisiting distributed synchronous SGD</a></td>
+      <td style="text-align: center">ICLR 2016</td>
+      <td style="text-align: center">2016-04</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="算法分析与优化">算法分析与优化</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1708.03888">Large Batch Training of Convolutional Networks</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2017-08</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1705.08741">Train longer, generalize better: closing the generalization gap in large batch training of neural networks</a></td>
+      <td style="text-align: center">NIPS 2017</td>
+      <td style="text-align: center">2017-05</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1609.04836">On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima</a></td>
+      <td style="text-align: center">ICLR 2017</td>
+      <td style="text-align: center">2016-09</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1904.00962">Reducing BERT Pre-Training Time from 3 Days to 76 Minutes</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2019-04</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1711.00489">Don’t Decay the Learning Rate, Increase the Batch Size</a></td>
+      <td style="text-align: center">ICLR 2018</td>
+      <td style="text-align: center">2017-11</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1810.01021">Large Batch Size Training of Neural Networks with Adversarial Training and Second-Order Information</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-10</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Augment your batch: better training with larger batches</td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2019-01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="通信拓扑">通信拓扑</h2>
+<h3 id="ring-allreduce">Ring AllReduce</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1802.05799">Horovod: fast and easy distributed deep learning in TensorFlow</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="parameter-server">Parameter Server</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1801.09805">Parameter Box: High Performance Parameter Servers for Efficient Distributed Deep Neural Network Training</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-01</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://papers.nips.cc/paper/7678-bml-a-high-performance-low-cost-gradient-synchronization-algorithm-for-dml-training.pdf">BML: A High-performance, Low-cost Gradient Synchronization Algorithm for DML Training</a></td>
+      <td style="text-align: center">NIPS 2018</td>
+      <td style="text-align: center">2018</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://doi.acm.org/10.1145/2901318.2901323">GeePS: Scalable deep learning on distributed GPUs with a GPU-specialized parameter server</a></td>
+      <td style="text-align: center">EuroSys 2016</td>
+      <td style="text-align: center">2016-04</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://papers.nips.cc/paper/4687-large-scale-distributed-deep-networks.pdf">Large Scale Distributed Deep Networks</a></td>
+      <td style="text-align: center">NIPS 2012</td>
+      <td style="text-align: center">2012</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1905.03960">Priority-based Parameter Propagation for Distributed DNN Training</a></td>
+      <td style="text-align: center">SysML 2019</td>
+      <td style="text-align: center">2019-05</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="其他">其他</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1808.02621">Parallax: Sparsity-aware Data Parallel Training of Deep Neural Networks</a></td>
+      <td style="text-align: center">EuroSys 2019</td>
+      <td style="text-align: center">2018-08</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://link.springer.com/10.1007/978-3-540-24685-5_1">Optimization of Collective Reduction Operations</a></td>
+      <td style="text-align: center">ICCS 2004</td>
+      <td style="text-align: center">2004-06</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1801.03855">MXNET-MPI: Embedding MPI parallelism in Parameter Server Task Model for scaling Deep Learning</a></td>
+      <td style="text-align: center">Proceedings of ACM Conference</td>
+      <td style="text-align: center">2018-01</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1804.05839">BigDL: A Distributed Deep Learning Framework for Big Data</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-04</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Project Adam: Building an Efficient and Scalable Deep Learning Training System</td>
+      <td style="text-align: center">OSDI 2014</td>
+      <td style="text-align: center">2014</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="并行模式">并行模式</h2>
+<h3 id="数据并行">数据并行</h3>
+<h3 id="模型并行">模型并行</h3>
+<h3 id="流水线训练">流水线训练</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1806.03377">PipeDream: Fast and Efficient Pipeline Parallel DNN Training</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-06</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1811.06965">GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-11</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="混合并行">混合并行</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1404.5997">One weird trick for parallelizing convolutional neural networks</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2014-04</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Beyond Data and Model Parallelism for Deep Neural Networks</td>
+      <td style="text-align: center">SysML 2019</td>
+      <td style="text-align: center">2019</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="通信量化压缩">通信量化&amp;压缩</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">AdaComp: Adaptive Residual Gradient Compression for Data-Parallel Distributed Training</td>
+      <td style="text-align: center">AAAI 2018</td>
+      <td style="text-align: center">2018</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://ieeexplore.ieee.org/document/7835789/">Communication Quantization for Data-Parallel Training of Deep Neural Networks</a></td>
+      <td style="text-align: center">MLHPC</td>
+      <td style="text-align: center">2016-11</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://ieeexplore.ieee.org/document/7835789/">Communication Quantization for Data-Parallel Training of Deep Neural Networks</a></td>
+      <td style="text-align: center">MLHPC</td>
+      <td style="text-align: center">2016-11</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://papers.nips.cc/paper/6749-terngrad-ternary-gradients-to-reduce-communication-in-distributed-deep-learning.pdf">TernGrad: Ternary Gradients to Reduce Communication in Distributed Deep Learning</a></td>
+      <td style="text-align: center">NIPS 2017</td>
+      <td style="text-align: center">2017</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="优化算法">优化算法</h2>
+<h3 id="异步算法">异步算法</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1803.01113">Slow and Stale Gradients Can Win the Race: Error-Runtime Trade-offs in Distributed SGD</a></td>
+      <td style="text-align: center">AISTATS 2018</td>
+      <td style="text-align: center">2018-03</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="模型平均">模型平均</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="https://arxiv.org/abs/1808.07217">Don’t Use Large Mini-Batches, Use Local SGD</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-08</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://dl.acm.org/citation.cfm?doid=3339186.3339203">Reducing global reductions in large-scale distributed training</a></td>
+      <td style="text-align: center">ICPP 2019</td>
+      <td style="text-align: center">2019-08</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1708.01012">On the convergence properties of a $K$-step averaging stochastic gradient descent algorithm for nonconvex optimization</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2017-08</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://ocs.aaai.org/ojs/index.php/AAAI/article/view/4465">Scalable Distributed DL Training: Batching Communication and Computation</a></td>
+      <td style="text-align: center">AAAI 2019</td>
+      <td style="text-align: center">2019</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1805.09767">Local SGD Converges Fast and Communicates Little</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-05</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1807.06629">Parallel Restarted SGD with Faster Convergence and Less Communication: Demystifying Why Model Averaging Works for Deep Learning</a></td>
+      <td style="text-align: center">AAAI 2019</td>
+      <td style="text-align: center">2018-07</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">A<a href="http://arxiv.org/abs/1810.08313">daptive Communication Strategies to Achieve the Best Error-Runtime Trade-off in Local-Update SGD</a></td>
+      <td style="text-align: center">SysML 2019</td>
+      <td style="text-align: center">2018-10</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://papers.nips.cc/paper/7117-can-decentralized-algorithms-outperform-centralized-algorithms-a-case-study-for-decentralized-parallel-stochastic-gradient-descent.pdf">Can Decentralized Algorithms OutperformCentralized Algorithms? A Case Study for Decentralized Parallel Stochastic Gradient Descent</a></td>
+      <td style="text-align: center">NIPS 2017</td>
+      <td style="text-align: center">2017</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1507.01239">Experiments on Parallel Training of Deep Neural Network using Model Averaging</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2015-07</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1808.07576">Cooperative SGD: A Unified Framework for the Design and Analysis of Communication-Efficient SGD Algorithms</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-08</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="其他优化">其他优化</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1806.02508">Fast Distributed Deep Learning via Worker-adaptive Batch Sizing</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2018-06</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Dynamic Mini-batch SGD for Elastic Distributed Training: Learning in the Limbo of Resources</td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2019-04</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="经典文章">经典文章</h2>
+<h3 id="网络模型">网络模型</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a></td>
+      <td style="text-align: center">CVPR 2016</td>
+      <td style="text-align: center">2015-12</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1602.02410">Exploring the Limits of Language Modeling</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2016-02</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://dl.acm.org/citation.cfm?doid=3098997.3065386">ImageNet classification with deep convolutional neural networks</a></td>
+      <td style="text-align: center">NIPS 2012</td>
+      <td style="text-align: center">2012</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1602.05629">Communication-Efficient Learning of Deep Networks from Decentralized Data</a></td>
+      <td style="text-align: center">AISTATS 2017</td>
+      <td style="text-align: center">2016-02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="数据集">数据集</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">论文名称</th>
+      <th style="text-align: center">发表刊物</th>
+      <th style="text-align: center">发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="http://arxiv.org/abs/1312.3005">One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling</a></td>
+      <td style="text-align: center">arXiv</td>
+      <td style="text-align: center">2013-12</td>
+    </tr>
+  </tbody>
+</table>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/08/25/About-Python/" data-toggle="tooltip" data-placement="top" title="About Python">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://huangxuan.me">Hux Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yytwz96">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Logging.debug 2019
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

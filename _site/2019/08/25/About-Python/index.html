@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="1">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>About Python - Yuetong's Log</title>
+
+    <link rel="canonical" href="http://localhost:4000/2019/08/25/About-Python/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Logging.debug</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/about_python.jpeg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/about_python.jpeg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                        <a class="tag" href="/tags/#编程语言" title="编程语言">编程语言</a>
+                        
+                    </div>
+                    <h1>About Python</h1>
+                    
+                    
+                    <h2 class="subheading">关于Python是否是解释型语言的讨论</h2>
+                    
+                    <span class="meta">Posted by yuetong on August 25, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="pyc文件"><code class="highlighter-rouge">pyc</code>文件</h1>
+<p>Python是一门解释型的语言，但是在运行之前，需要将<code class="highlighter-rouge">.py</code>文件中的源码编译为<code class="highlighter-rouge">.pyc</code>文件，<code class="highlighter-rouge">.pyc</code>文件存放的是源代码在Python解释器运行之后编译得到的byte code。Python虚拟机之后再执行这些字节码。
+根据这个说明，Python程序在执行之前都会生成<code class="highlighter-rouge">.pyc</code>文件，因为只有byte code才能够被相应的虚拟机所执行。但是，实际上，并不完全正确。
+假设现在有两个Python脚本文件<code class="highlighter-rouge">abc.py</code>和<code class="highlighter-rouge">xyz.py</code>，其中<code class="highlighter-rouge">abc.py</code>中将xyz作为一个模块导入其中，换句话说，<code class="highlighter-rouge">abc.py</code>中有<code class="highlighter-rouge">import xyz</code>语句。如果执行<code class="highlighter-rouge">python abc.py</code>，那么只会有<code class="highlighter-rouge">xyz.pyc</code>文件。
+这个例子说明了，运行某个脚本时，python解释器并不会为这个脚本生成<code class="highlighter-rouge">.pyc</code>文件，只会为这个脚本<code class="highlighter-rouge">import</code>的一些模块生成<code class="highlighter-rouge">pyc</code>文件。其实这种文件存在的主要原因是为了加速<code class="highlighter-rouge">Python</code>程序的编译运行速度，当导入的模块没有发生变化的时候，就不需要再重新生成<code class="highlighter-rouge">pyc</code>文件了。
+在<code class="highlighter-rouge">Python2</code>中，<code class="highlighter-rouge">pyc</code>文件通常生成之后会存放在与<code class="highlighter-rouge">py</code>文件相同的目录下。在<code class="highlighter-rouge">Python3</code>中，这些文件会放在<code class="highlighter-rouge">__pycache__</code>目录中。</p>
+<h1 id="python是解释型语言">Python是“解释型”语言？</h1>
+<p>在查找关于<code class="highlighter-rouge">pyc</code>文件的相关内容的时候，关注到有一些关于Python是否是解释型语言的讨论。将讨论的内容总结如下：</p>
+<ul>
+  <li>Python是一个语言规范
+  通常说Python是一门编程语言，但是网上的资料给出的更加确切的论述是，Python是一种语言规范，我们写Python代码的时候，都是遵循着Python的语言规范形成<code class="highlighter-rouge">py</code>文件。</li>
+  <li>Python有多种实现
+  我理解的Python的实现的含义就是，Python的解释器将Python解释为某种字节码，并且在某种特定要求的机器上运行的一种特定环境。
+  Python有多种实现，这些实现将Python脚本编译为不同字节码，并交由不同的虚拟环境进行解释执行。举几个常见的例子：
+    <ul>
+      <li>CPython：将Python脚本编译为CPython bytecode，然后解释执行</li>
+      <li>Jython：将Python脚本编译为JVML的bytecode，之后交由JVM进行解释执行</li>
+      <li>IronPython：首先将Python脚本解释为CIL bytecode，之后这个字节码如何执行取决于具体的环境，在.NET, GNU Portable.NET 以及 Novell Mono将会将这些字节码编译为相应的机器码执行。</li>
+    </ul>
+  </li>
+  <li>任何一门语言都不能简单的确定是否是<strong>解释型语言</strong>
+从上面的分析可以看出，一门语言实际上只定义了一种语言规范，并没有指出具体的实现方式。有些实现方式可能将源代码编译为字节码，并交由虚拟机解释执行，有些实现方式可能将源代码编译成为机器码执行。因此，讨论一门语言是解释型还是编译型的语言，是要基于某个语言的具体实现上进行讨论的。
+    <h1 id="参考资料">参考资料</h1>
+  </li>
+</ul>
+
+<p><a href="http://effbot.org/pyfaq/how-do-i-create-a-pyc-file.htm">How do I create a .pyc file?</a></p>
+
+<p><a href="https://stackoverflow.com/questions/2998215/if-python-is-interpreted-what-are-pyc-files">If Python is interpreted, what are .pyc files?</a></p>
+
+<p><a href="https://www.quora.com/What-are-Python-pyc-files-and-how-are-they-used">What are Python .pyc files and how are they used?</a></p>
+
+<p><a href="https://stackoverflow.com/questions/5149832/where-are-the-pyc-files">where are the .pyc files?</a></p>
+
+<p><a href="https://stackoverflow.com/questions/16869024/what-is-pycache">What is <strong>pycache</strong>?</a></p>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/08/22/Paper-Index/" data-toggle="tooltip" data-placement="top" title="文章汇总">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+
+                
+
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://huangxuan.me">Hux Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yytwz96">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Logging.debug 2019
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

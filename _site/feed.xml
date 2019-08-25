@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logging.debug</title>
+    <description>1</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 25 Aug 2019 10:15:19 +0800</pubDate>
+    <lastBuildDate>Sun, 25 Aug 2019 10:15:19 +0800</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>About Python</title>
+        <description>&lt;h1 id=&quot;pyc文件&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pyc&lt;/code&gt;文件&lt;/h1&gt;
+&lt;p&gt;Python是一门解释型的语言，但是在运行之前，需要将&lt;code class=&quot;highlighter-rouge&quot;&gt;.py&lt;/code&gt;文件中的源码编译为&lt;code class=&quot;highlighter-rouge&quot;&gt;.pyc&lt;/code&gt;文件，&lt;code class=&quot;highlighter-rouge&quot;&gt;.pyc&lt;/code&gt;文件存放的是源代码在Python解释器运行之后编译得到的byte code。Python虚拟机之后再执行这些字节码。
+根据这个说明，Python程序在执行之前都会生成&lt;code class=&quot;highlighter-rouge&quot;&gt;.pyc&lt;/code&gt;文件，因为只有byte code才能够被相应的虚拟机所执行。但是，实际上，并不完全正确。
+假设现在有两个Python脚本文件&lt;code class=&quot;highlighter-rouge&quot;&gt;abc.py&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;xyz.py&lt;/code&gt;，其中&lt;code class=&quot;highlighter-rouge&quot;&gt;abc.py&lt;/code&gt;中将xyz作为一个模块导入其中，换句话说，&lt;code class=&quot;highlighter-rouge&quot;&gt;abc.py&lt;/code&gt;中有&lt;code class=&quot;highlighter-rouge&quot;&gt;import xyz&lt;/code&gt;语句。如果执行&lt;code class=&quot;highlighter-rouge&quot;&gt;python abc.py&lt;/code&gt;，那么只会有&lt;code class=&quot;highlighter-rouge&quot;&gt;xyz.pyc&lt;/code&gt;文件。
+这个例子说明了，运行某个脚本时，python解释器并不会为这个脚本生成&lt;code class=&quot;highlighter-rouge&quot;&gt;.pyc&lt;/code&gt;文件，只会为这个脚本&lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt;的一些模块生成&lt;code class=&quot;highlighter-rouge&quot;&gt;pyc&lt;/code&gt;文件。其实这种文件存在的主要原因是为了加速&lt;code class=&quot;highlighter-rouge&quot;&gt;Python&lt;/code&gt;程序的编译运行速度，当导入的模块没有发生变化的时候，就不需要再重新生成&lt;code class=&quot;highlighter-rouge&quot;&gt;pyc&lt;/code&gt;文件了。
+在&lt;code class=&quot;highlighter-rouge&quot;&gt;Python2&lt;/code&gt;中，&lt;code class=&quot;highlighter-rouge&quot;&gt;pyc&lt;/code&gt;文件通常生成之后会存放在与&lt;code class=&quot;highlighter-rouge&quot;&gt;py&lt;/code&gt;文件相同的目录下。在&lt;code class=&quot;highlighter-rouge&quot;&gt;Python3&lt;/code&gt;中，这些文件会放在&lt;code class=&quot;highlighter-rouge&quot;&gt;__pycache__&lt;/code&gt;目录中。&lt;/p&gt;
+&lt;h1 id=&quot;python是解释型语言&quot;&gt;Python是“解释型”语言？&lt;/h1&gt;
+&lt;p&gt;在查找关于&lt;code class=&quot;highlighter-rouge&quot;&gt;pyc&lt;/code&gt;文件的相关内容的时候，关注到有一些关于Python是否是解释型语言的讨论。将讨论的内容总结如下：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Python是一个语言规范
+  通常说Python是一门编程语言，但是网上的资料给出的更加确切的论述是，Python是一种语言规范，我们写Python代码的时候，都是遵循着Python的语言规范形成&lt;code class=&quot;highlighter-rouge&quot;&gt;py&lt;/code&gt;文件。&lt;/li&gt;
+  &lt;li&gt;Python有多种实现
+  我理解的Python的实现的含义就是，Python的解释器将Python解释为某种字节码，并且在某种特定要求的机器上运行的一种特定环境。
+  Python有多种实现，这些实现将Python脚本编译为不同字节码，并交由不同的虚拟环境进行解释执行。举几个常见的例子：
+    &lt;ul&gt;
+      &lt;li&gt;CPython：将Python脚本编译为CPython bytecode，然后解释执行&lt;/li&gt;
+      &lt;li&gt;Jython：将Python脚本编译为JVML的bytecode，之后交由JVM进行解释执行&lt;/li&gt;
+      &lt;li&gt;IronPython：首先将Python脚本解释为CIL bytecode，之后这个字节码如何执行取决于具体的环境，在.NET, GNU Portable.NET 以及 Novell Mono将会将这些字节码编译为相应的机器码执行。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;任何一门语言都不能简单的确定是否是&lt;strong&gt;解释型语言&lt;/strong&gt;
+从上面的分析可以看出，一门语言实际上只定义了一种语言规范，并没有指出具体的实现方式。有些实现方式可能将源代码编译为字节码，并交由虚拟机解释执行，有些实现方式可能将源代码编译成为机器码执行。因此，讨论一门语言是解释型还是编译型的语言，是要基于某个语言的具体实现上进行讨论的。
+    &lt;h1 id=&quot;参考资料&quot;&gt;参考资料&lt;/h1&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://effbot.org/pyfaq/how-do-i-create-a-pyc-file.htm&quot;&gt;How do I create a .pyc file?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/2998215/if-python-is-interpreted-what-are-pyc-files&quot;&gt;If Python is interpreted, what are .pyc files?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.quora.com/What-are-Python-pyc-files-and-how-are-they-used&quot;&gt;What are Python .pyc files and how are they used?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/5149832/where-are-the-pyc-files&quot;&gt;where are the .pyc files?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/16869024/what-is-pycache&quot;&gt;What is &lt;strong&gt;pycache&lt;/strong&gt;?&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 25 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/25/About-Python/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/25/About-Python/</guid>
+        
+        <category>Python</category>
+        
+        <category>编程语言</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>文章汇总</title>
+        <description>&lt;h1 id=&quot;文章汇总&quot;&gt;文章汇总&lt;/h1&gt;
+&lt;p&gt;在这里，我将近期读过的一些文章做一个汇总与梳理。之后这篇汇总涉及到的篇目将随着阅读的深入不断的增加。
+这里包括的文章大多是与分布式深度神经网络训练相关的，不过这个领域包括许多细分的方向，各篇文章侧重的重点有所不同，当然不同方向的文章的关注点也有交集。为了更好的整理这个目录性质的文章汇总，我依据个人理解粗略对文章进行分类，并放入相应的类别下。某些文章如果与多个主题相关，它们将会在多个类别下出现。&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h2 id=&quot;综述&quot;&gt;综述&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1802.09941&quot;&gt;Demystifying Parallel and Distributed Deep Learning: An In-Depth Concurrency Analysis&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1810.11787&quot;&gt;A Hitchhiker’s Guide On Distributed Training of Deep Neural Networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-10&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;large-batch-training&quot;&gt;Large Batch Training&lt;/h2&gt;
+&lt;h3 id=&quot;系统整体设计&quot;&gt;系统整体设计&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://arxiv.org/abs/1706.02677&quot;&gt;Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2017-06&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://dl.acm.org/citation.cfm?id=3225069&quot;&gt;ImageNet Training in Minutes&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICPP 2018&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://arxiv.org/abs/1711.04325&quot;&gt;Extremely Large Minibatch SGD: Training ResNet-50 on ImageNet in 15 Minutes&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2017-11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://arxiv.org/abs/1807.11205&quot;&gt;Highly Scalable Deep Learning Training System with Mixed-Precision: Training ImageNet in Four Minutes&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-07&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1902.06855&quot;&gt;Optimizing Network Performance for Distributed DNN Training on GPU Clusters: ImageNet/AlexNet Training in 1.5 Minutes&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2019-02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1810.01993&quot;&gt;Exascale Deep Learning for Climate Analytics&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SC 19&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Speeding up ImageNet Training on Supercomputers&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SysML 2018&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://arxiv.org/abs/1604.00981&quot;&gt;Revisiting distributed synchronous SGD&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICLR 2016&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2016-04&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;算法分析与优化&quot;&gt;算法分析与优化&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1708.03888&quot;&gt;Large Batch Training of Convolutional Networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2017-08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1705.08741&quot;&gt;Train longer, generalize better: closing the generalization gap in large batch training of neural networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NIPS 2017&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2017-05&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1609.04836&quot;&gt;On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICLR 2017&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2016-09&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1904.00962&quot;&gt;Reducing BERT Pre-Training Time from 3 Days to 76 Minutes&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2019-04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1711.00489&quot;&gt;Don’t Decay the Learning Rate, Increase the Batch Size&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICLR 2018&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2017-11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1810.01021&quot;&gt;Large Batch Size Training of Neural Networks with Adversarial Training and Second-Order Information&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Augment your batch: better training with larger batches&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2019-01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;通信拓扑&quot;&gt;通信拓扑&lt;/h2&gt;
+&lt;h3 id=&quot;ring-allreduce&quot;&gt;Ring AllReduce&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1802.05799&quot;&gt;Horovod: fast and easy distributed deep learning in TensorFlow&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;parameter-server&quot;&gt;Parameter Server&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1801.09805&quot;&gt;Parameter Box: High Performance Parameter Servers for Efficient Distributed Deep Neural Network Training&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://papers.nips.cc/paper/7678-bml-a-high-performance-low-cost-gradient-synchronization-algorithm-for-dml-training.pdf&quot;&gt;BML: A High-performance, Low-cost Gradient Synchronization Algorithm for DML Training&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NIPS 2018&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://doi.acm.org/10.1145/2901318.2901323&quot;&gt;GeePS: Scalable deep learning on distributed GPUs with a GPU-specialized parameter server&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;EuroSys 2016&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2016-04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://papers.nips.cc/paper/4687-large-scale-distributed-deep-networks.pdf&quot;&gt;Large Scale Distributed Deep Networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NIPS 2012&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2012&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1905.03960&quot;&gt;Priority-based Parameter Propagation for Distributed DNN Training&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SysML 2019&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2019-05&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;其他&quot;&gt;其他&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1808.02621&quot;&gt;Parallax: Sparsity-aware Data Parallel Training of Deep Neural Networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;EuroSys 2019&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://link.springer.com/10.1007/978-3-540-24685-5_1&quot;&gt;Optimization of Collective Reduction Operations&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICCS 2004&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2004-06&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1801.03855&quot;&gt;MXNET-MPI: Embedding MPI parallelism in Parameter Server Task Model for scaling Deep Learning&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Proceedings of ACM Conference&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1804.05839&quot;&gt;BigDL: A Distributed Deep Learning Framework for Big Data&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Project Adam: Building an Efficient and Scalable Deep Learning Training System&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OSDI 2014&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2014&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;并行模式&quot;&gt;并行模式&lt;/h2&gt;
+&lt;h3 id=&quot;数据并行&quot;&gt;数据并行&lt;/h3&gt;
+&lt;h3 id=&quot;模型并行&quot;&gt;模型并行&lt;/h3&gt;
+&lt;h3 id=&quot;流水线训练&quot;&gt;流水线训练&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1806.03377&quot;&gt;PipeDream: Fast and Efficient Pipeline Parallel DNN Training&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-06&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1811.06965&quot;&gt;GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-11&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;混合并行&quot;&gt;混合并行&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1404.5997&quot;&gt;One weird trick for parallelizing convolutional neural networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2014-04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Beyond Data and Model Parallelism for Deep Neural Networks&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SysML 2019&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2019&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;通信量化压缩&quot;&gt;通信量化&amp;amp;压缩&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AdaComp: Adaptive Residual Gradient Compression for Data-Parallel Distributed Training&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AAAI 2018&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://ieeexplore.ieee.org/document/7835789/&quot;&gt;Communication Quantization for Data-Parallel Training of Deep Neural Networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;MLHPC&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2016-11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://ieeexplore.ieee.org/document/7835789/&quot;&gt;Communication Quantization for Data-Parallel Training of Deep Neural Networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;MLHPC&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2016-11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://papers.nips.cc/paper/6749-terngrad-ternary-gradients-to-reduce-communication-in-distributed-deep-learning.pdf&quot;&gt;TernGrad: Ternary Gradients to Reduce Communication in Distributed Deep Learning&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NIPS 2017&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2017&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;优化算法&quot;&gt;优化算法&lt;/h2&gt;
+&lt;h3 id=&quot;异步算法&quot;&gt;异步算法&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1803.01113&quot;&gt;Slow and Stale Gradients Can Win the Race: Error-Runtime Trade-offs in Distributed SGD&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AISTATS 2018&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;模型平均&quot;&gt;模型平均&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://arxiv.org/abs/1808.07217&quot;&gt;Don’t Use Large Mini-Batches, Use Local SGD&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://dl.acm.org/citation.cfm?doid=3339186.3339203&quot;&gt;Reducing global reductions in large-scale distributed training&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICPP 2019&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2019-08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1708.01012&quot;&gt;On the convergence properties of a $K$-step averaging stochastic gradient descent algorithm for nonconvex optimization&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2017-08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://ocs.aaai.org/ojs/index.php/AAAI/article/view/4465&quot;&gt;Scalable Distributed DL Training: Batching Communication and Computation&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AAAI 2019&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2019&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1805.09767&quot;&gt;Local SGD Converges Fast and Communicates Little&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-05&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1807.06629&quot;&gt;Parallel Restarted SGD with Faster Convergence and Less Communication: Demystifying Why Model Averaging Works for Deep Learning&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AAAI 2019&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-07&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;a href=&quot;http://arxiv.org/abs/1810.08313&quot;&gt;daptive Communication Strategies to Achieve the Best Error-Runtime Trade-off in Local-Update SGD&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SysML 2019&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://papers.nips.cc/paper/7117-can-decentralized-algorithms-outperform-centralized-algorithms-a-case-study-for-decentralized-parallel-stochastic-gradient-descent.pdf&quot;&gt;Can Decentralized Algorithms OutperformCentralized Algorithms? A Case Study for Decentralized Parallel Stochastic Gradient Descent&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NIPS 2017&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2017&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1507.01239&quot;&gt;Experiments on Parallel Training of Deep Neural Network using Model Averaging&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2015-07&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1808.07576&quot;&gt;Cooperative SGD: A Unified Framework for the Design and Analysis of Communication-Efficient SGD Algorithms&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-08&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;其他优化&quot;&gt;其他优化&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1806.02508&quot;&gt;Fast Distributed Deep Learning via Worker-adaptive Batch Sizing&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2018-06&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Dynamic Mini-batch SGD for Elastic Distributed Training: Learning in the Limbo of Resources&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2019-04&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;经典文章&quot;&gt;经典文章&lt;/h2&gt;
+&lt;h3 id=&quot;网络模型&quot;&gt;网络模型&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1512.03385&quot;&gt;Deep Residual Learning for Image Recognition&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;CVPR 2016&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2015-12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1602.02410&quot;&gt;Exploring the Limits of Language Modeling&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2016-02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://dl.acm.org/citation.cfm?doid=3098997.3065386&quot;&gt;ImageNet classification with deep convolutional neural networks&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NIPS 2012&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2012&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1602.05629&quot;&gt;Communication-Efficient Learning of Deep Networks from Decentralized Data&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AISTATS 2017&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2016-02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;数据集&quot;&gt;数据集&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;论文名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表刊物&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;发表时间&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://arxiv.org/abs/1312.3005&quot;&gt;One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;arXiv&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2013-12&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Thu, 22 Aug 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/08/22/Paper-Index/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/22/Paper-Index/</guid>
+        
+        <category>深度学习</category>
+        
+        <category>分布式训练</category>
+        
+        <category>文章总结</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
