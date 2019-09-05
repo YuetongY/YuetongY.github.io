@@ -154,6 +154,29 @@
             ">
     			
 <div class="post-preview">
+    <a href="/2019/09/05/TensorFlow-SyncReplicasOptimizer/">
+        <h2 class="post-title">
+            TensorFlow SyncReplicasOptimizer 解读
+        </h2>
+        
+        <h3 class="post-subtitle">
+            对SyncReplicasOptimizer实现的分布式训练的分析
+        </h3>
+        
+        <div class="post-content-preview">
+            背景
+在CNN等深度神经网络的分布式训练中，比较常用的一种训练模式是（同步的）数据并行，也就是各个计算设备分别根据各自获得的batch，前向计算获得损失，进而反向传播计算梯度。待所有计算设备完成梯度计算之后，对梯度进行平均，利用平均梯度对模型进行更新。
+
+上面这种模式只是一种逻辑架构，具体实现上，可以使用参数服务器（PS）的形式实现。在参数服务器架构中，计算设备被划分为参数服务器(ps)和w...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yuetong on September 5, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/2019/08/25/About-Python/">
         <h2 class="post-title">
             About Python
@@ -217,6 +240,18 @@ Python是一门解释型的语言，但是在运行之前，需要将.py文件�
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        
+                            
+                                <a href="/tags/#深度学习" title="深度学习" rel="2">
+                                    深度学习
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#分布式训练" title="分布式训练" rel="2">
+                                    分布式训练
+                                </a>
+                            
                         
                             
                         

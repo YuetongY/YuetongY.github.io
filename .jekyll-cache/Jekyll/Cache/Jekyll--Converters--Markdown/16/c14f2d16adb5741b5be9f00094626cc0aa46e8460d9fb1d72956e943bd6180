@@ -1,0 +1,124 @@
+I"�"<h1 id="scripting-hello-world-in-different-programming-languages">Scripting “Hello World” In Different Programming Languages</h1>
+<p>“Hello World” is a test message that was brought into the practice by an example which was stated in the seminal book “The C Programming Language”. Scripting “Hello World” in Different Programming Languages is something that you must be aware of. The “hello world” test message is popularly used by many of the programmers across the world. The history of it says that it was inherited from a 1974 Bell Laboratories internal memorandum by Brian Kernighan. The memorandum has the title “Programming in C: A Tutorial.” It contains the first known version.</p>
+
+<p>Scripting of “Hello World” in different programming languages is a way for rookie coders to become acquainted with a new language. However, the applications of these programs go beyond an introduction to the coding world. Hello World is actually used as a rationality test simply to make sure that the used components of a language have been correctly installed. This is needed because the process involved in configuring a complete programming commands is lengthy and complex, that is the reason a simple program like Hello World is often used as a first-run test on a new tool chain. This article will help you for the programming the test message in whichever programming you opt.</p>
+<blockquote>
+  <p><a href="https://www.netspaceindia.com/scripting-hello-world-in-different-programming-languages/">Scripting “Hello World” In Different Programming Languages</a></p>
+</blockquote>
+
+<h1 id="scripting-hello-world-in-different-programming-languages-1">Scripting “Hello World” in Different Programming Languages</h1>
+<h2 id="c-program">C program</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">(</span>
+<span class="n">printf</span> <span class="p">(</span><span class="s">"Hello World!</span><span class="se">\n</span><span class="s">'"</span><span class="p">);</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="d-program">D program</h2>
+<div class="language-d highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="n">helloworld</span>
+<span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span>
+<span class="kt">void</span> <span class="n">main</span> <span class="p">()</span> <span class="p">{</span>
+<span class="n">Writeln</span> <span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="delphi">Delphi</h2>
+<pre><code class="language-delphi">Program Hello-World;
+{SAPPTYPE CONSOLE}
+Begin
+Writeln ("Hello, world!")
+End
+</code></pre>
+
+<h2 id="hello">Hello</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>h
+</code></pre></div></div>
+
+<h2 id="lisp">Lisp</h2>
+<pre><code class="language-lisp">"Hello, world"
+</code></pre>
+
+<h2 id="groovy">Groovy</h2>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">println</span> <span class="s2">"Hello, world!"</span>
+</code></pre></div></div>
+
+<h2 id="pearl">Pearl</h2>
+<div class="language-perl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">println</span> <span class="p">"</span><span class="s2">Hello, world!</span><span class="se">\n</span><span class="p">"</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="lua">Lua</h2>
+<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">print</span> <span class="p">(</span><span class="s2">"Hello, world!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="ruby">Ruby</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">puta</span> <span class="s1">'Hello, world!'</span>
+</code></pre></div></div>
+
+<h2 id="boo">Boo</h2>
+<pre><code class="language-Boo">import System.Drawing
+import System.Windows.Forms
+f = Form ()
+f. Controls.Add(Label (Text : "Hello, world!", Location: Point (40,30)))
+f. Controls.Add(Button (Text : "ok", Location Point (50,55), Click: (Application.Exit())))
+Application.Run(f)
+</code></pre>
+
+<h2 id="java">Java</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Hello</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span> <span class="nc">String</span> <span class="o">[]</span> <span class="n">args</span> <span class="o">)</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span> <span class="o">(</span><span class="s">"Hello, world !"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="objective-c">Objective-C</h2>
+<div class="language-objectivec highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp"># import &lt;Foundation/Foundation.h&gt;
+</span><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+<span class="n">NSLog</span><span class="p">(</span> <span class="s">"Hello, World!"</span><span class="p">);</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="tcl">Tcl</h2>
+<div class="language-tcl highlighter-rouge"><div class="highlight"><pre class="highlight"><code>puta <span class="s2">"Hello, world!"</span>
+</code></pre></div></div>
+
+<h2 id="javascript">JavaScript</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span> <span class="p">(</span><span class="dl">'</span><span class="s1">Hello, world!</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="haskell">Haskell</h2>
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">main</span> <span class="o">=</span> <span class="n">putstrLn</span> <span class="s">"Hello, world!"</span>
+
+</code></pre></div></div>
+
+<h2 id="c">C++</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#INCLUDE &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+<span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello, world!"</span> <span class="o">&lt;&lt;</span> <span class="n">end1</span><span class="p">;</span>
+<span class="k">return</span> <span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="python">Python</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="r">R</h2>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cat</span><span class="w"> </span><span class="p">(</span><span class="s2">"Hello, world!"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="sql">SQL</h2>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nv">"Hello, world!"</span> <span class="k">AS</span> <span class="n">message</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="php">PHP</h2>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?</span> <span class="nx">ECHO</span> <span class="s2">"Hello, world!"</span> <span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+:ET

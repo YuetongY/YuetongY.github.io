@@ -1,0 +1,36 @@
+I"<h1 id="pyc文件"><code class="highlighter-rouge">pyc</code>文件</h1>
+<p>Python是一门解释型的语言，但是在运行之前，需要将<code class="highlighter-rouge">.py</code>文件中的源码编译为<code class="highlighter-rouge">.pyc</code>文件，<code class="highlighter-rouge">.pyc</code>文件存放的是源代码在Python解释器运行之后编译得到的byte code。Python虚拟机之后再执行这些字节码。
+根据这个说明，Python程序在执行之前都会生成<code class="highlighter-rouge">.pyc</code>文件，因为只有byte code才能够被相应的虚拟机所执行。但是，实际上，并不完全正确。
+假设现在有两个Python脚本文件<code class="highlighter-rouge">abc.py</code>和<code class="highlighter-rouge">xyz.py</code>，其中<code class="highlighter-rouge">abc.py</code>中将xyz作为一个模块导入其中，换句话说，<code class="highlighter-rouge">abc.py</code>中有<code class="highlighter-rouge">import xyz</code>语句。如果执行<code class="highlighter-rouge">python abc.py</code>，那么只会有<code class="highlighter-rouge">xyz.pyc</code>文件。
+这个例子说明了，运行某个脚本时，python解释器并不会为这个脚本生成<code class="highlighter-rouge">.pyc</code>文件，只会为这个脚本<code class="highlighter-rouge">import</code>的一些模块生成<code class="highlighter-rouge">pyc</code>文件。其实这种文件存在的主要原因是为了加速<code class="highlighter-rouge">Python</code>程序的编译运行速度，当导入的模块没有发生变化的时候，就不需要再重新生成<code class="highlighter-rouge">pyc</code>文件了。
+在<code class="highlighter-rouge">Python2</code>中，<code class="highlighter-rouge">pyc</code>文件通常生成之后会存放在与<code class="highlighter-rouge">py</code>文件相同的目录下。在<code class="highlighter-rouge">Python3</code>中，这些文件会放在<code class="highlighter-rouge">__pycache__</code>目录中。</p>
+<h1 id="python是解释型语言">Python是“解释型”语言？</h1>
+<p>在查找关于<code class="highlighter-rouge">pyc</code>文件的相关内容的时候，关注到有一些关于Python是否是解释型语言的讨论。将讨论的内容总结如下：</p>
+<ul>
+  <li>Python是一个语言规范
+  通常说Python是一门编程语言，但是网上的资料给出的更加确切的论述是，Python是一种语言规范，我们写Python代码的时候，都是遵循着Python的语言规范形成<code class="highlighter-rouge">py</code>文件。</li>
+  <li>Python有多种实现
+  我理解的Python的实现的含义就是，Python的解释器将Python解释为某种字节码，并且在某种特定要求的机器上运行的一种特定环境。
+  Python有多种实现，这些实现将Python脚本编译为不同字节码，并交由不同的虚拟环境进行解释执行。举几个常见的例子：
+    <ul>
+      <li>CPython：将Python脚本编译为CPython bytecode，然后解释执行</li>
+      <li>Jython：将Python脚本编译为JVML的bytecode，之后交由JVM进行解释执行</li>
+      <li>IronPython：首先将Python脚本解释为CIL bytecode，之后这个字节码如何执行取决于具体的环境，在.NET, GNU Portable.NET 以及 Novell Mono将会将这些字节码编译为相应的机器码执行。</li>
+    </ul>
+  </li>
+  <li>任何一门语言都不能简单的确定是否是<strong>解释型语言</strong>
+从上面的分析可以看出，一门语言实际上只定义了一种语言规范，并没有指出具体的实现方式。有些实现方式可能将源代码编译为字节码，并交由虚拟机解释执行，有些实现方式可能将源代码编译成为机器码执行。因此，讨论一门语言是解释型还是编译型的语言，是要基于某个语言的具体实现上进行讨论的。
+    <h1 id="参考资料">参考资料</h1>
+  </li>
+</ul>
+
+<p><a href="http://effbot.org/pyfaq/how-do-i-create-a-pyc-file.htm">How do I create a .pyc file?</a></p>
+
+<p><a href="https://stackoverflow.com/questions/2998215/if-python-is-interpreted-what-are-pyc-files">If Python is interpreted, what are .pyc files?</a></p>
+
+<p><a href="https://www.quora.com/What-are-Python-pyc-files-and-how-are-they-used">What are Python .pyc files and how are they used?</a></p>
+
+<p><a href="https://stackoverflow.com/questions/5149832/where-are-the-pyc-files">where are the .pyc files?</a></p>
+
+<p><a href="https://stackoverflow.com/questions/16869024/what-is-pycache">What is <strong>pycache</strong>?</a></p>
+:ET
