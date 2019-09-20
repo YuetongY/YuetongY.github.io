@@ -80,6 +80,7 @@ tags:
 |[MXNET-MPI: Embedding MPI parallelism in Parameter Server Task Model for scaling Deep Learning](http://arxiv.org/abs/1801.03855)|Proceedings of ACM Conference|2018-01|
 |[BigDL: A Distributed Deep Learning Framework for Big Data](http://arxiv.org/abs/1804.05839)|arXiv|2018-04|
 |Project Adam: Building an Efficient and Scalable Deep Learning Training System|OSDI 2014|2014|
+|RedSync: Reducing synchronization bandwidth for distributed deep learning training system|JPDC 2019|2018|
 
 ## 并行模式
 ### 数据并行
@@ -106,6 +107,7 @@ tags:
 |[Communication Quantization for Data-Parallel Training of Deep Neural Networks](http://ieeexplore.ieee.org/document/7835789/)|MLHPC|2016-11|
 |[Communication Quantization for Data-Parallel Training of Deep Neural Networks](http://ieeexplore.ieee.org/document/7835789/)|MLHPC|2016-11|
 |[TernGrad: Ternary Gradients to Reduce Communication in Distributed Deep Learning](http://papers.nips.cc/paper/6749-terngrad-ternary-gradients-to-reduce-communication-in-distributed-deep-learning.pdf)|NIPS 2017|2017|
+|RedSync: Reducing synchronization bandwidth for distributed deep learning training system|JPDC 2019|2018|
 
 ## 优化算法
 ### 异步算法

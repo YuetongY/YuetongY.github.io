@@ -1,4 +1,4 @@
-I"�O<h1 id="文章汇总">文章汇总</h1>
+I"�Q<h1 id="文章汇总">文章汇总</h1>
 <p>在这里，我将近期读过的一些文章做一个汇总与梳理。之后这篇汇总涉及到的篇目将随着阅读的深入不断的增加。
 这里包括的文章大多是与分布式深度神经网络训练相关的，不过这个领域包括许多细分的方向，各篇文章侧重的重点有所不同，当然不同方向的文章的关注点也有交集。为了更好的整理这个目录性质的文章汇总，我依据个人理解粗略对文章进行分类，并放入相应的类别下。某些文章如果与多个主题相关，它们将会在多个类别下出现。</p>
 
@@ -227,6 +227,11 @@
       <td style="text-align: center">OSDI 2014</td>
       <td style="text-align: center">2014</td>
     </tr>
+    <tr>
+      <td style="text-align: center">RedSync: Reducing synchronization bandwidth for distributed deep learning training system</td>
+      <td style="text-align: center">JPDC 2019</td>
+      <td style="text-align: center">2018</td>
+    </tr>
   </tbody>
 </table>
 
@@ -311,6 +316,11 @@
       <td style="text-align: center"><a href="http://papers.nips.cc/paper/6749-terngrad-ternary-gradients-to-reduce-communication-in-distributed-deep-learning.pdf">TernGrad: Ternary Gradients to Reduce Communication in Distributed Deep Learning</a></td>
       <td style="text-align: center">NIPS 2017</td>
       <td style="text-align: center">2017</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">RedSync: Reducing synchronization bandwidth for distributed deep learning training system</td>
+      <td style="text-align: center">JPDC 2019</td>
+      <td style="text-align: center">2018</td>
     </tr>
   </tbody>
 </table>
