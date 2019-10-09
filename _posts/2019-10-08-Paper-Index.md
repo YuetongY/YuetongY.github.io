@@ -4,7 +4,7 @@ title:  "文章汇总"
 subtitle: "读过的文章的分类汇总"
 author: "yuetong"
 header-img: "img/state_of_the_art.jpg"
-date:   2019-08-22
+date:   2019-10-08
 tags:
     - 深度学习
     - 分布式训练
@@ -16,7 +16,6 @@ tags:
 在这里，我将近期读过的一些文章做一个汇总与梳理。之后这篇汇总涉及到的篇目将随着阅读的深入不断的增加。
 这里包括的文章大多是与分布式深度神经网络训练相关的，不过这个领域包括许多细分的方向，各篇文章侧重的重点有所不同，当然不同方向的文章的关注点也有交集。为了更好的整理这个目录性质的文章汇总，我依据个人理解粗略对文章进行分类，并放入相应的类别下。某些文章如果与多个主题相关，它们将会在多个类别下出现。
 
-[TOC]
 
 ## 综述
 
@@ -38,8 +37,8 @@ tags:
 |[Exascale Deep Learning for Climate Analytics](http://arxiv.org/abs/1810.01993)|SC 19|2018-10|
 |Speeding up ImageNet Training on Supercomputers|SysML 2018|2018|
 |[Revisiting distributed synchronous SGD](https://arxiv.org/abs/1604.00981)|ICLR 2016|2016-04|
-
-
+|Ako: Decentralised Deep Learning with Partial Gradient Exchange|SoCC 2016|2016|
+|CROSSBOW: Scaling Deep Learning with Small Batch Sizes on Multi-GPU Servers|SysML 2019|2019-08|
 
 
 ### 算法分析与优化
@@ -54,12 +53,13 @@ tags:
 |[Large Batch Size Training of Neural Networks with Adversarial Training and Second-Order Information](http://arxiv.org/abs/1810.01021)|arXiv|2018-10|
 |Augment your batch: better training with larger batches|arXiv|2019-01|
 
-## 通信拓扑
+## 通信优化
 ### Ring AllReduce
 
 |论文名称|发表刊物|发表时间|
 | :--------: | :--------:| :------: |
 |[Horovod: fast and easy distributed deep learning in TensorFlow](http://arxiv.org/abs/1802.05799)|arXiv|2018-02|
+|A Distributed Synchronous SGD Algorithm with Global Top-$k$ Sparsification for Low Bandwidth Networks|ICDCS 2019|2019-01|
 
 ### Parameter Server
 
@@ -70,6 +70,7 @@ tags:
 |[GeePS: Scalable deep learning on distributed GPUs with a GPU-specialized parameter server](http://doi.acm.org/10.1145/2901318.2901323)|EuroSys 2016|2016-04|
 |[Large Scale Distributed Deep Networks](http://papers.nips.cc/paper/4687-large-scale-distributed-deep-networks.pdf)|NIPS 2012|2012|
 |[Priority-based Parameter Propagation for Distributed DNN Training](http://arxiv.org/abs/1905.03960)|SysML 2019|2019-05|
+|Round-Robin Synchronization: Mitigating Communication Bottlenecks in Parameter Servers|infocom 2019|2019|
 
 ### 其他
 
@@ -81,6 +82,8 @@ tags:
 |[BigDL: A Distributed Deep Learning Framework for Big Data](http://arxiv.org/abs/1804.05839)|arXiv|2018-04|
 |Project Adam: Building an Efficient and Scalable Deep Learning Training System|OSDI 2014|2014|
 |RedSync: Reducing synchronization bandwidth for distributed deep learning training system|JPDC 2019|2018|
+|Ako: Decentralised Deep Learning with Partial Gradient Exchange|SoCC 2016|2016|
+|TicTac: Accelerating Distributed Deep Learning with Communication Scheduling|SysML 2019|2019|
 
 ## 并行模式
 ### 数据并行
@@ -131,12 +134,14 @@ tags:
 |[Experiments on Parallel Training of Deep Neural Network using Model Averaging](http://arxiv.org/abs/1507.01239)|arXiv|2015-07|
 |[Cooperative SGD: A Unified Framework for the Design and Analysis of Communication-Efficient SGD Algorithms](http://arxiv.org/abs/1808.07576)|arXiv|2018-08|
 
-## 其他优化
+## 其他
 
 |论文名称|发表刊物|发表时间|
 | :--------: | :--------:| :------: |
 |[Fast Distributed Deep Learning via Worker-adaptive Batch Sizing](http://arxiv.org/abs/1806.02508)|arXiv|2018-06|
 |Dynamic Mini-batch SGD for Elastic Distributed Training: Learning in the Limbo of Resources|arXiv|2019-04|
+|CROSSBOW: Scaling Deep Learning with Small Batch Sizes on Multi-GPU Servers|SysML 2019|2019-08|
+|Parallelized Training of Deep NN – Comparison of Current Concepts and Frameworks|DIDL 2018|2018-12|
 
 ## 经典文章
 ### 网络模型

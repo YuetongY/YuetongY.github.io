@@ -1,8 +1,6 @@
-I"�Q<h1 id="文章汇总">文章汇总</h1>
+I"�X<h1 id="文章汇总">文章汇总</h1>
 <p>在这里，我将近期读过的一些文章做一个汇总与梳理。之后这篇汇总涉及到的篇目将随着阅读的深入不断的增加。
 这里包括的文章大多是与分布式深度神经网络训练相关的，不过这个领域包括许多细分的方向，各篇文章侧重的重点有所不同，当然不同方向的文章的关注点也有交集。为了更好的整理这个目录性质的文章汇总，我依据个人理解粗略对文章进行分类，并放入相应的类别下。某些文章如果与多个主题相关，它们将会在多个类别下出现。</p>
-
-<p>[TOC]</p>
 
 <h2 id="综述">综述</h2>
 
@@ -80,6 +78,16 @@
       <td style="text-align: center">ICLR 2016</td>
       <td style="text-align: center">2016-04</td>
     </tr>
+    <tr>
+      <td style="text-align: center">Ako: Decentralised Deep Learning with Partial Gradient Exchange</td>
+      <td style="text-align: center">SoCC 2016</td>
+      <td style="text-align: center">2016</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">CROSSBOW: Scaling Deep Learning with Small Batch Sizes on Multi-GPU Servers</td>
+      <td style="text-align: center">SysML 2019</td>
+      <td style="text-align: center">2019-08</td>
+    </tr>
   </tbody>
 </table>
 
@@ -132,7 +140,7 @@
   </tbody>
 </table>
 
-<h2 id="通信拓扑">通信拓扑</h2>
+<h2 id="通信优化">通信优化</h2>
 <h3 id="ring-allreduce">Ring AllReduce</h3>
 
 <table>
@@ -148,6 +156,11 @@
       <td style="text-align: center"><a href="http://arxiv.org/abs/1802.05799">Horovod: fast and easy distributed deep learning in TensorFlow</a></td>
       <td style="text-align: center">arXiv</td>
       <td style="text-align: center">2018-02</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">A Distributed Synchronous SGD Algorithm with Global Top-$k$ Sparsification for Low Bandwidth Networks</td>
+      <td style="text-align: center">ICDCS 2019</td>
+      <td style="text-align: center">2019-01</td>
     </tr>
   </tbody>
 </table>
@@ -187,6 +200,11 @@
       <td style="text-align: center"><a href="http://arxiv.org/abs/1905.03960">Priority-based Parameter Propagation for Distributed DNN Training</a></td>
       <td style="text-align: center">SysML 2019</td>
       <td style="text-align: center">2019-05</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Round-Robin Synchronization: Mitigating Communication Bottlenecks in Parameter Servers</td>
+      <td style="text-align: center">infocom 2019</td>
+      <td style="text-align: center">2019</td>
     </tr>
   </tbody>
 </table>
@@ -231,6 +249,16 @@
       <td style="text-align: center">RedSync: Reducing synchronization bandwidth for distributed deep learning training system</td>
       <td style="text-align: center">JPDC 2019</td>
       <td style="text-align: center">2018</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ako: Decentralised Deep Learning with Partial Gradient Exchange</td>
+      <td style="text-align: center">SoCC 2016</td>
+      <td style="text-align: center">2016</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">TicTac: Accelerating Distributed Deep Learning with Communication Scheduling</td>
+      <td style="text-align: center">SysML 2019</td>
+      <td style="text-align: center">2019</td>
     </tr>
   </tbody>
 </table>
@@ -409,7 +437,7 @@
   </tbody>
 </table>
 
-<h2 id="其他优化">其他优化</h2>
+<h2 id="其他-1">其他</h2>
 
 <table>
   <thead>
@@ -429,6 +457,16 @@
       <td style="text-align: center">Dynamic Mini-batch SGD for Elastic Distributed Training: Learning in the Limbo of Resources</td>
       <td style="text-align: center">arXiv</td>
       <td style="text-align: center">2019-04</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">CROSSBOW: Scaling Deep Learning with Small Batch Sizes on Multi-GPU Servers</td>
+      <td style="text-align: center">SysML 2019</td>
+      <td style="text-align: center">2019-08</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Parallelized Training of Deep NN – Comparison of Current Concepts and Frameworks</td>
+      <td style="text-align: center">DIDL 2018</td>
+      <td style="text-align: center">2018-12</td>
     </tr>
   </tbody>
 </table>
